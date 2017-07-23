@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="182" id="KGk-i7-Jjw" customClass="CustomTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="335"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="335"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6sb-5i-JjY">
+                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Dda-r4-3MN"/>
+                            <constraint firstAttribute="height" constant="60" id="XkP-K5-E5h"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-P1-xZB">
+                        <rect key="frame" x="76" y="9" width="181" height="23"/>
+                        <color key="backgroundColor" red="0.98223870170076533" green="1" blue="0.69916389327037609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="45V-L1-0hS"/>
+                            <constraint firstAttribute="width" constant="181" id="mBf-63-o8g"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emailLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVF-m4-TaB">
+                        <rect key="frame" x="265" y="9" width="137" height="21"/>
+                        <color key="backgroundColor" red="0.84070756439318828" green="1" blue="0.74980209488251093" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="NEN-Tc-GrO"/>
+                            <constraint firstAttribute="width" constant="137" id="acj-wf-NBB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4mz-Hn-oDD">
+                        <rect key="frame" x="76" y="39" width="334" height="87"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="87" id="KgW-9G-iw8"/>
+                        </constraints>
+                        <string key="text">Belle is a girl who is dissatisfied with life in a small provincial French town, constantly trying to fend off the misplaced "affections" of conceited Gaston. </string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxl-cR-SQW">
+                        <rect key="frame" x="63" y="289" width="53" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="j6x-dz-Wgo"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="rIw-FE-aR6"/>
+                            <constraint firstAttribute="height" constant="45" id="wF8-eC-Fkw"/>
+                            <constraint firstAttribute="width" constant="53" id="ySL-fK-5IC"/>
+                        </constraints>
+                        <state key="normal" title="Share" image="btn1"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLb-JA-peZ">
+                        <rect key="frame" x="166" y="289" width="53" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="AsW-WK-Pd9"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="GUD-q6-CKd"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="WS3-g7-LTO"/>
+                            <constraint firstAttribute="width" constant="53" id="qHP-o2-Bwc"/>
+                        </constraints>
+                        <state key="normal" title="Share" image="btn2"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-PT-6up">
+                        <rect key="frame" x="265" y="289" width="53" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="53" id="Qz7-Si-F71"/>
+                            <constraint firstAttribute="height" constant="45" id="kHK-6p-fvD"/>
+                        </constraints>
+                        <state key="normal" title="Share" image="btn3"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CG9-pj-QsU">
+                        <rect key="frame" x="352" y="289" width="37" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="smd-Ia-mjz"/>
+                            <constraint firstAttribute="width" constant="37" id="uut-8J-Sra"/>
+                        </constraints>
+                        <state key="normal" title="Share" image="btn4"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-1v-Z5O">
+                        <rect key="frame" x="63" y="124" width="326" height="157"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="326" id="7yL-T6-VFi"/>
+                            <constraint firstAttribute="height" constant="157" id="Fd3-w6-KqU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUW-K3-vrJ">
+                        <rect key="frame" x="8" y="260" width="47" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Kda-PT-6up" firstAttribute="leading" secondItem="bLb-JA-peZ" secondAttribute="trailing" constant="46" id="0VK-mW-72v"/>
+                    <constraint firstItem="7aI-P1-xZB" firstAttribute="leading" secondItem="4mz-Hn-oDD" secondAttribute="leading" id="1qd-0o-a6t"/>
+                    <constraint firstItem="7aI-P1-xZB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="5nW-FN-0O5"/>
+                    <constraint firstItem="bLb-JA-peZ" firstAttribute="leading" secondItem="Zxl-cR-SQW" secondAttribute="trailing" constant="50" id="7kN-AF-njX"/>
+                    <constraint firstItem="bLb-JA-peZ" firstAttribute="top" secondItem="hgf-1v-Z5O" secondAttribute="bottom" constant="8" id="90P-ya-HYR"/>
+                    <constraint firstItem="CG9-pj-QsU" firstAttribute="trailing" secondItem="hgf-1v-Z5O" secondAttribute="trailing" id="9rp-mU-BGn"/>
+                    <constraint firstAttribute="bottom" secondItem="Zxl-cR-SQW" secondAttribute="bottom" id="PPn-n8-E29"/>
+                    <constraint firstItem="7aI-P1-xZB" firstAttribute="leading" secondItem="6sb-5i-JjY" secondAttribute="trailing" constant="8" symbolic="YES" id="SRJ-8g-r1N"/>
+                    <constraint firstItem="6sb-5i-JjY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VVe-1e-SPM"/>
+                    <constraint firstItem="4mz-Hn-oDD" firstAttribute="top" secondItem="7aI-P1-xZB" secondAttribute="bottom" constant="7" id="WeY-aC-eAw"/>
+                    <constraint firstItem="hgf-1v-Z5O" firstAttribute="top" secondItem="7aI-P1-xZB" secondAttribute="bottom" constant="92" id="baw-sh-sk1"/>
+                    <constraint firstItem="7aI-P1-xZB" firstAttribute="firstBaseline" secondItem="qVF-m4-TaB" secondAttribute="firstBaseline" id="gms-Q0-fGB"/>
+                    <constraint firstAttribute="trailing" secondItem="hgf-1v-Z5O" secondAttribute="trailing" constant="21" id="mBZ-10-6vB"/>
+                    <constraint firstItem="Zxl-cR-SQW" firstAttribute="top" secondItem="hgf-1v-Z5O" secondAttribute="bottom" constant="8" id="pnG-90-BZz"/>
+                    <constraint firstItem="Zxl-cR-SQW" firstAttribute="leading" secondItem="hgf-1v-Z5O" secondAttribute="leading" id="rMt-SN-UZ7"/>
+                    <constraint firstItem="CG9-pj-QsU" firstAttribute="top" secondItem="hgf-1v-Z5O" secondAttribute="bottom" constant="8" id="tSo-eO-kjh"/>
+                    <constraint firstItem="6sb-5i-JjY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="wHO-9K-ku2"/>
+                    <constraint firstItem="CG9-pj-QsU" firstAttribute="leading" secondItem="Kda-PT-6up" secondAttribute="trailing" constant="34" id="x1W-be-md7"/>
+                    <constraint firstItem="qVF-m4-TaB" firstAttribute="leading" secondItem="7aI-P1-xZB" secondAttribute="trailing" constant="8" symbolic="YES" id="xGF-K2-ev2"/>
+                    <constraint firstItem="Kda-PT-6up" firstAttribute="top" secondItem="hgf-1v-Z5O" secondAttribute="bottom" constant="8" id="xuv-Ao-iRU"/>
+                    <constraint firstAttribute="trailing" secondItem="4mz-Hn-oDD" secondAttribute="trailing" id="zdk-ak-fZU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImage" destination="6sb-5i-JjY" id="avk-td-ao7"/>
+                <outlet property="emailLabel" destination="qVF-m4-TaB" id="2ig-qU-bvS"/>
+                <outlet property="nameLabel" destination="7aI-P1-xZB" id="hRH-sQ-J5D"/>
+                <outlet property="timeLabel" destination="CUW-K3-vrJ" id="LxC-4f-vUl"/>
+                <outlet property="uploadImage" destination="hgf-1v-Z5O" id="MDH-4X-ULr"/>
+            </connections>
+            <point key="canvasLocation" x="-50" y="-132.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btn1" width="256" height="256"/>
+        <image name="btn2" width="256" height="256"/>
+        <image name="btn3" width="256" height="256"/>
+        <image name="btn4" width="128" height="128"/>
+    </resources>
+</document>
