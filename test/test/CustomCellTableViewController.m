@@ -27,7 +27,7 @@
     searchBar.userInteractionEnabled = false;
     self.tableView.tableHeaderView = searchBar;
     
-    // use dictionary
+    // user dictionary
     NSDictionary *user1Dic =@{@"name"   : @"Beauty and The Beast",
                               @"email"  : @"@beautyandthebeast.com",
                               @"upload" : @"http://marry.net.vn/wp-content/uploads/images/1488983489-phai-dep-viet-bat-ngo-xuat-hien-trong-clip-mung-8-3-cua-nguoi-dep-va-quai-vat.jpg",
@@ -66,8 +66,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CustomTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([CustomTableViewCell class])];
 }
 
-- (NSString *)uploadTime
-{
+- (NSString *)uploadTime {
+    
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"JST"];
@@ -79,31 +79,50 @@
     return [dateFormatter stringFromDate:date];
 }
 
-- (NSString *)dataFilePath:(NSString *)saveFileName
-{
+- (NSString *)dataFilePath:(NSString *)saveFileName {
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", saveFileName]];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+    
     _userArray = [NSArray arrayWithContentsOfFile:[self dataFilePath:@"userArray"]];
+    NSLog(@"_userArray: %@", _userArray);
+    
+    /*
+    NSArray *userUpload = [_userArray valueForKey: @"upload"];
+    NSLog(@"userUpload: %@", userUpload);
+    */
+    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error ) {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else {
+                                   completionBlock(NO,nil);
+                               }
+                           }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 335;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_userArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CustomTableViewCell class]) forIndexPath:indexPath];
     
     NSDictionary *userInfo = [_userArray objectAtIndex: indexPath.row];
@@ -112,6 +131,7 @@
     cell.emailLabel.text = userInfo[@"email"];
     cell.avatarImage.image = [UIImage imageNamed: userInfo[@"avatar"]];
     cell.timeLabel.text = [self uploadTime];
+    
     
     [cell.uploadImage setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString: userInfo[@"upload"]]] placeholderImage:[UIImage imageNamed: @"placeholder.png"] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -124,27 +144,38 @@
             
         });
         
-        /*
         NSData *cacheImageData = UIImagePNGRepresentation(image);
         NSMutableDictionary *cacheDic = [NSMutableDictionary dictionary];
-        NSString *cacheKey = [_upload objectAtIndex: indexPath.row];
-        */
+        NSString *cacheKey = userInfo[@"upload"]/*[_upload objectAtIndex: indexPath.row]*/;
+        [cacheDic setObject: cacheImageData forKey: cacheKey];
+        
+        NSLog(@"cacheDic : %@", cacheDic);
         
     } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
         
         NSLog(@"Fail");
     }];
-
+    
+    
+    /*
+     // download the image asynchronously
+     [self downloadImageWithURL: [NSURL URLWithString: userInfo[@"upload"]] completionBlock:^(BOOL succeeded, UIImage *image) {
+     if (succeeded) {
+     cell.uploadImage.image = image;
+     cell.uploadImage.contentMode = UIViewContentModeScaleAspectFill;
+     [cell.uploadImage setupImageViewer];
+     cell.uploadImage.clipsToBounds = YES;
+     }
+     }];*/
+    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSLog(@"didSelectRowAtIndexPath");
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
